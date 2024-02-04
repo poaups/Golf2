@@ -20,7 +20,7 @@ public class VictoirePlateform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (GetComponent<Rigidbody2D>().velocity.magnitude >= 0.5f)  
+        if (collision.gameObject.tag == ("Victoire"))
         {
             GameObject.Destroy(gameObject);
         }
