@@ -11,9 +11,15 @@ public class GameCore : MonoBehaviour
     public float ForceMin;
     public float m_timerClick;
     public Image ImageRelaod;
+    public Level CurrentLevel;
+    public static int s_currentLevel;
+    public Level[] Levels;
+    
     // Start is called before the first frame update
     void Start()
     {
+        CurrentLevel = Levels[s_currentLevel];
+        CurrentLevel.gameObject.SetActive(true);
 
     }
 
@@ -52,6 +58,21 @@ public class GameCore : MonoBehaviour
 
             rb.simulated = true;
             rb.AddForce(new Vector2(force, force), ForceMode2D.Impulse);
+        }
+
+        int victoireAlive = 0;
+        foreach (var item in CurrentLevel.platformVictoire)
+        {
+            if (item != null)
+            {
+                victoireAlive++;
+            }
+        }
+        if ( victoireAlive == 0)
+        {
+            s_currentLevel++;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            return;
         }
     }
 

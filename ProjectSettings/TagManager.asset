@@ -11,6 +11,7 @@ TagManager:
   - Projtection
   - Chute
   - Death
+  - Victoire
   layers:
   - Default
   - TransparentFX
