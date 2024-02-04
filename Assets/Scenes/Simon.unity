@@ -810,7 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlateformVictoire: {fileID: 227335646}
 --- !u!61 &227335649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2004,11 +2003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6975459080618154085, guid: 9e3099c9aecb4654daa698bf1d23a515, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.1556063
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 6975459080618154085, guid: 9e3099c9aecb4654daa698bf1d23a515, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.314198
+      value: -9.64
       objectReference: {fileID: 0}
     - target: {fileID: 6975459080618154085, guid: 9e3099c9aecb4654daa698bf1d23a515, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2257,7 +2256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlateformVictoire: {fileID: 1783126984}
 --- !u!1 &702451381
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,7 +4986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlateformVictoire: {fileID: 1685202309}
 --- !u!61 &1685202312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5516,7 +5513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlateformVictoire: {fileID: 1783126984}
 --- !u!1 &1910586756
 GameObject:
   m_ObjectHideFlags: 0

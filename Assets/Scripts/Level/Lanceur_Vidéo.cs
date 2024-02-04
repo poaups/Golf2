@@ -32,7 +32,7 @@ public class Lanceur_Vidéo : MonoBehaviour
         }
     }
 
-    void Allumer()
+    public void Allumer()
     {
         Raw.gameObject.SetActive(true);
         videoPlayerObject.SetActive(true);

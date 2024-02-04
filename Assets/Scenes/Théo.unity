@@ -2486,6 +2486,7 @@ MonoBehaviour:
   - {fileID: 367701080}
   - {fileID: 1347155376}
   - {fileID: 401628772}
+  lanceurVideoScript: {fileID: 1985843778}
 --- !u!4 &570681334
 Transform:
   m_ObjectHideFlags: 0
@@ -9405,7 +9406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2078926677
 Transform:
   m_ObjectHideFlags: 0

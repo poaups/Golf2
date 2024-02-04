@@ -14,12 +14,15 @@ public class GameCore : MonoBehaviour
     public Level CurrentLevel;
     public static int s_currentLevel;
     public Level[] Levels;
+    public Lanceur_Vidéo lanceurVideoScript;
     
     // Start is called before the first frame update
     void Start()
     {
         CurrentLevel = Levels[s_currentLevel];
         CurrentLevel.gameObject.SetActive(true);
+        //lanceurVideoScript = GetComponent<Lanceur_Vidéo>();
+
 
     }
 
@@ -71,7 +74,8 @@ public class GameCore : MonoBehaviour
         if ( victoireAlive == 0)
         {
             Debug.Log("Victoire");
-            
+            lanceurVideoScript.Allumer();
+
             s_currentLevel++;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
