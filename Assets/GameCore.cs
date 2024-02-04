@@ -71,7 +71,7 @@ public class GameCore : MonoBehaviour
         if ( victoireAlive == 0)
         {
             Debug.Log("Victoire");
-            CurrentLevel.gameObject.SetActive(false);
+            
             s_currentLevel++;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
