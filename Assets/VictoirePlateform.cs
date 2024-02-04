@@ -5,7 +5,7 @@ using UnityEngine;
 public class VictoirePlateform : MonoBehaviour
 {
 
-    public GameObject PlateformVictoire;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +20,9 @@ public class VictoirePlateform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Victoire"))
+        if (GetComponent<Rigidbody2D>().velocity.magnitude >= 0.5f)  
         {
-            
-            Destroy(PlateformVictoire);
+            GameObject.Destroy(gameObject);
         }
     }
 }
