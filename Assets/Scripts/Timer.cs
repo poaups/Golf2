@@ -6,41 +6,56 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [Header("Component")]
+    public TextMeshProUGUI timerText;
 
-    public float TimeLeft;
-    public bool TimerOn = false;
+    [Header("TimerSettings")]
+    public float currentTime;
+    public bool countDown;
 
-    public TMP_Text TimerTXT;
-    // Start is called before the first frame update
+    [Header("LimitSettings")]
+    public bool hasLimit;
+    public float timerLimit;
+
+    [Header("FormatSettings")]
+    public bool hasFormat;
+    public TimerFormats format;
+    private Dictionary<TimerFormats, string> timeFormats = new Dictionary<TimerFormats, string>();
+
     void Start()
     {
-        TimerOn = true;
+        timeFormats.Add(TimerFormats.Whole, "0");
+        timeFormats.Add(TimerFormats.TenthDecimal, "0.0");
+        timeFormats.Add(TimerFormats.HundrethsDecimal, "0.00");
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (TimerOn)
-        {
-            if (TimeLeft > 0)
-            {
-                TimeLeft -= Time.deltaTime;
-                UpdateTimer(TimeLeft);
-            }
-            else
-            {
-                Debug.Log("Time is Up");
-                TimeLeft = 0;
-                TimerOn = false;
-            }
-        }
-    }
-    void UpdateTimer(float currentTime)
-    {
-        currentTime += 1; 
-        float minutes = Mathf.FloorToInt(currentTime / 60);
-        float secondes = Mathf.FloorToInt(currentTime % 60);
+        currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
-        TimerTXT.text = string.Format("(0:00) : (1:00)", minutes, secondes);
+        if (hasLimit && ((countDown && currentTime <= timerLimit) || (!countDown && currentTime >= timerLimit)))
+        {
+            currentTime = timerLimit;
+            SetTimerText ();
+            timerText.color = Color.red;
+            enabled = false;
+        }
+        
+        SetTimerText();
     }
+
+    private void SetTimerText()
+    {
+        timerText.text = hasFormat ? currentTime.ToString(timeFormats[format]) : currentTime.ToString();
+    }
+
+    
+}
+
+public enum TimerFormats
+{
+    Whole,
+    TenthDecimal,
+    HundrethsDecimal,
 }
