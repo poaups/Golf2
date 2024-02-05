@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 162332782}
-  currentTime: 10
+  currentTime: 5
   countDown: 1
   hasLimit: 1
   timerLimit: 0
@@ -1413,6 +1413,7 @@ MonoBehaviour:
   ImageRelaod: {fileID: 192718375}
   CurrentLevel: {fileID: 0}
   Levels: []
+  lanceurVideoScript: {fileID: 0}
 --- !u!4 &570681334
 Transform:
   m_ObjectHideFlags: 0
