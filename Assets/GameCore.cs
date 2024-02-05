@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
-
     public Rigidbody2D rb;
+
+    [Header("Power Parameters")]
     public float ForceMax;
     public float ForceMin;
     public float m_timerClick;
     public Image ImageRelaod;
+
+    [Header("Levels Parameters")]
     public Level CurrentLevel;
     public static int s_currentLevel;
     public Level[] Levels;
+
+    [Header("Vidéo Parameters")]
     public Lanceur_Vidéo lanceurVideoScript;
     public static float force;
 
