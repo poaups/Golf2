@@ -546,6 +546,7 @@ GameObject:
   - component: {fileID: 162332781}
   - component: {fileID: 162332783}
   - component: {fileID: 162332782}
+  - component: {fileID: 162332784}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -570,8 +571,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700.23, y: 436}
-  m_SizeDelta: {x: 319.5397, y: 163.7554}
+  m_AnchoredPosition: {x: -781.6891, y: 496.28894}
+  m_SizeDelta: {x: 156.6214, y: 43.1775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162332782
 MonoBehaviour:
@@ -670,6 +671,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162332780}
   m_CullTransparentMesh: 1
+--- !u!95 &162332784
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162332780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 167c69539e3f1084ead727070b203ff5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &178856515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,10 +1052,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 162332782}
-  currentTime: 5
+  timerAnimation: {fileID: 162332782}
+  currentTime: 18
   countDown: 1
   hasLimit: 1
   timerLimit: 0
+  timerAlarm: 15
   hasFormat: 1
   format: 2
 --- !u!4 &423551350
@@ -1407,6 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 660292883}
+  cam: {fileID: 0}
   ForceMax: 10
   ForceMin: 5
   m_timerClick: 0
@@ -1414,6 +1439,10 @@ MonoBehaviour:
   CurrentLevel: {fileID: 0}
   Levels: []
   lanceurVideoScript: {fileID: 0}
+  Golfeur: {fileID: 0}
+  Default_Image: {fileID: 0}
+  Second_Image: {fileID: 0}
+  Third_Image: {fileID: 0}
 --- !u!4 &570681334
 Transform:
   m_ObjectHideFlags: 0
