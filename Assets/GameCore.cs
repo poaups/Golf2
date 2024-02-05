@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameCore : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Camera cam; //Camera du player;
 
     [Header("Power Parameters")]
     public float ForceMax;
@@ -24,9 +25,9 @@ public class GameCore : MonoBehaviour
 
     [Header("Golf Visuel")]
     public GameObject Golfeur;
-    public Image i1;
-    public Image i2;
-    public Image i3;
+    public Image Default_Image;
+    public Image Second_Image;
+    public Image Third_Image;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,7 @@ public class GameCore : MonoBehaviour
 
         Golfeur_Image();
         Puissance();
+        Camera();
 
         int victoireAlive = 0;
         foreach (var item in CurrentLevel.platformVictoire)
@@ -80,21 +82,22 @@ public class GameCore : MonoBehaviour
         }
     }
 
-    //Fct qui s'occupe de l'affichage du golfeur en fct de m_timerClick
+    //Fct qui s'occupe de l'affichage du golfeur en fct de m_timerClick 
     public void Golfeur_Image()
     {
+        //m_timerClick etant bloqué a 1 max
         if (m_timerClick <= 0.33)
         {
-            Golfeur.GetComponent<Image>().sprite = i1.sprite;
+            Golfeur.GetComponent<Image>().sprite = Default_Image.sprite;
 
         }
         else if (m_timerClick >= 0.33 && m_timerClick <= 0.66)
         {
-            Golfeur.GetComponent<Image>().sprite = i2.sprite;
+            Golfeur.GetComponent<Image>().sprite = Second_Image.sprite;
         }
         else
         {
-            Golfeur.GetComponent<Image>().sprite = i3.sprite;
+            Golfeur.GetComponent<Image>().sprite = Third_Image.sprite;
         }
 
     }
@@ -117,6 +120,15 @@ public class GameCore : MonoBehaviour
             rb.AddForce(new Vector2(force, force), ForceMode2D.Impulse);
             m_timerClick = 0;
         }
+    }
+
+    //Fct qui gere le dezoom de la camera
+    public void Camera()
+    {
+        //cam.orthographicSize = orthographic = type de la camera, Size = le Zoom
+        //Par defaut le size de la camera est a 10 alors je l'additione a m_timerClick
+        cam.orthographicSize = 10 + m_timerClick;
+        
     }
 
     public static Vector2[] PreviewPhysics(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
