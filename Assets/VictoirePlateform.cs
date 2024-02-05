@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VictoirePlateform : MonoBehaviour
 {
+    public GameObject LanceurVideo;
 
     
     // Start is called before the first frame update
@@ -22,7 +23,12 @@ public class VictoirePlateform : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Victoire"))
         {
+            LanceurVideo.GetComponent<Lanceur_Vidéo>().Allumer();
             GameObject.Destroy(gameObject);
+            //if (LanceurVideo.GetComponent<Lanceur_Vidéo>().On_Off == false)
+            //{
+            //    GameObject.Destroy(gameObject);
+            //}
         }
     }
 }

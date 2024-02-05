@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Lanceur_Vidéo : MonoBehaviour
 {
     public GameObject videoPlayerObject;
-    public RawImage Raw;
-    public KeyCode key;
+    public RawImage   Raw;
+    public KeyCode    key;
+    public bool       On_Off = false;
+
     private VideoPlayer videoPlayer;
 
     void Start()
@@ -34,6 +36,7 @@ public class Lanceur_Vidéo : MonoBehaviour
 
     public void Allumer()
     {
+        On_Off = true;
         Raw.gameObject.SetActive(true);
         videoPlayerObject.SetActive(true);
 
@@ -42,6 +45,7 @@ public class Lanceur_Vidéo : MonoBehaviour
 
     void Eteindre()
     {
+        On_Off = false;
         Raw.gameObject.SetActive(false);
         videoPlayerObject.SetActive(false);
     }
@@ -51,5 +55,6 @@ public class Lanceur_Vidéo : MonoBehaviour
     {
         //print("Vidéo terminée");
         Eteindre();
+        
     }
 }
