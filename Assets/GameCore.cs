@@ -54,26 +54,7 @@ public class GameCore : MonoBehaviour
         //}
 
         Golfeur_Image();
-
-        if (Input.GetMouseButton(0))
-        {
-            m_timerClick += Time.deltaTime;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            
-            if (m_timerClick > 1.0)
-            {
-                m_timerClick = 1;
-            }
-
-            force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
-
-            rb.simulated = true;
-            rb.AddForce(new Vector2(force, force), ForceMode2D.Impulse);
-            m_timerClick = 0;
-        }
-
+        Puissance();
 
         int victoireAlive = 0;
         foreach (var item in CurrentLevel.platformVictoire)
@@ -83,7 +64,7 @@ public class GameCore : MonoBehaviour
                 victoireAlive++;
             }
         }
-        if ( victoireAlive == 0)
+        if (victoireAlive == 0)
         {
             Debug.Log("Victoire");
             lanceurVideoScript.Allumer();
@@ -97,12 +78,12 @@ public class GameCore : MonoBehaviour
     //Fct qui s'occupe de l'affichage du golfeur en fct de m_timerClick
     public void Golfeur_Image()
     {
-        if(m_timerClick <= 0.33)
+        if (m_timerClick <= 0.33)
         {
             Golfeur.GetComponent<Image>().sprite = i1.sprite;
 
         }
-        else if (m_timerClick >= 0.33 && m_timerClick  <= 0.66)
+        else if (m_timerClick >= 0.33 && m_timerClick <= 0.66)
         {
             Golfeur.GetComponent<Image>().sprite = i2.sprite;
         }
@@ -111,6 +92,26 @@ public class GameCore : MonoBehaviour
             Golfeur.GetComponent<Image>().sprite = i3.sprite;
         }
 
+    }
+
+    //Fct qui gere la puissance (force), et m_timerClick pour les jauges (Golfeur + Feedback tire)
+    public void Puissance()
+    {
+        //Incrementation m_timerClick 
+        if (Input.GetMouseButton(0) && m_timerClick <= 1)
+        {
+            m_timerClick += Time.deltaTime;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+
+            force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
+
+            rb.simulated = true;
+            rb.AddForce(new Vector2(force, force), ForceMode2D.Impulse);
+            m_timerClick = 0;
+        }
     }
 
     public static Vector2[] PreviewPhysics(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
