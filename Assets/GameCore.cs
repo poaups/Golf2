@@ -15,7 +15,14 @@ public class GameCore : MonoBehaviour
     public static int s_currentLevel;
     public Level[] Levels;
     public Lanceur_Vidéo lanceurVideoScript;
-    
+    public static float force;
+
+    [Header("Golf Visuel")]
+    public GameObject Golfeur;
+    public Image i1;
+    public Image i2;
+    public Image i3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +38,7 @@ public class GameCore : MonoBehaviour
     {
 
         ImageRelaod.fillAmount = m_timerClick;
+        Debug.Log(m_timerClick);
 
         //code caca sa sert a rien mdrrr 
 
@@ -45,23 +53,27 @@ public class GameCore : MonoBehaviour
         //    rb.transform.rotation = Quaternion.Euler(0, 0, angle);
         //}
 
+        Golfeur_Image();
+
         if (Input.GetMouseButton(0))
         {
             m_timerClick += Time.deltaTime;
-
         }
         if (Input.GetMouseButtonUp(0))
         {
+            
             if (m_timerClick > 1.0)
             {
                 m_timerClick = 1;
             }
 
-            float force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
+            force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
 
             rb.simulated = true;
             rb.AddForce(new Vector2(force, force), ForceMode2D.Impulse);
+            m_timerClick = 0;
         }
+
 
         int victoireAlive = 0;
         foreach (var item in CurrentLevel.platformVictoire)
@@ -80,6 +92,25 @@ public class GameCore : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
         }
+    }
+
+    //Fct qui s'occupe de l'affichage du golfeur en fct de m_timerClick
+    public void Golfeur_Image()
+    {
+        if(m_timerClick <= 0.33)
+        {
+            Golfeur.GetComponent<Image>().sprite = i1.sprite;
+
+        }
+        else if (m_timerClick >= 0.33 && m_timerClick  <= 0.66)
+        {
+            Golfeur.GetComponent<Image>().sprite = i2.sprite;
+        }
+        else
+        {
+            Golfeur.GetComponent<Image>().sprite = i3.sprite;
+        }
+
     }
 
     public static Vector2[] PreviewPhysics(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
