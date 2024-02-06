@@ -11,8 +11,9 @@ public class MainMenuManger : MonoBehaviour
     [SerializeField] private Image imageFade;
     [SerializeField] private GameObject menuOptions;
     [SerializeField] private GameObject menuCredits;
-    public AudioSource Music;
+    private AudioSource Music;
     public AudioMixer Mixer;
+  
 
     public void OnClickPlay()
     {
@@ -75,9 +76,10 @@ public class MainMenuManger : MonoBehaviour
         Music.volume = newValue;
     }
 
+
     public void OnSFXValueChanged(float newValue)
     {
-        if(newValue  < 0.01f)
+        if (newValue < 0.01f)
         {
             newValue = 0.01f;
         }
@@ -86,5 +88,6 @@ public class MainMenuManger : MonoBehaviour
 
         Mixer.SetFloat("SFX_Volume", volume);
     }
+
 
 }
