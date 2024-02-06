@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public Animator animator;
     private float hasPlayed = 0;
     public Image imageFade;
+    public GameObject Playerball;
 
 
     [Header("Component")]
@@ -53,10 +54,14 @@ public class Timer : MonoBehaviour
             SetTimerText ();
             enabled = false;
             ResetTimer();
+            Playerball.GetComponent<Spawner_Ball>().Reset_Position();
+            animator.ResetTrigger("Move");
+
             //imageFade.DOFade(1, 2.9f).OnComplete(() => ResetTimer());
         }
         
         SetTimerText();
+
         if (currentTime < timerAlarm && hasPlayed == 0)
         {
             timerText.color = Color.red;

@@ -19,7 +19,7 @@ public class Spawner_Ball : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            //Faudra tres probablement cancel la vitesse de la balle avant de la tp
+         
             Reset_Position();
             
         }
