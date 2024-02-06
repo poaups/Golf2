@@ -12,7 +12,8 @@ public class MainMenuManger : MonoBehaviour
     [SerializeField] private GameObject menuOptions;
     [SerializeField] private GameObject menuCredits;
     private AudioSource Music;
-    public AudioMixer Mixer;
+    public AudioMixer MixerSFX;
+    public AudioMixer MixerVolume;
   
 
     public void OnClickPlay()
@@ -24,7 +25,7 @@ public class MainMenuManger : MonoBehaviour
 
     private void FadeComplete()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("SceneTestCameraz");
     }
 
     public void OnClickOptions()
@@ -74,6 +75,7 @@ public class MainMenuManger : MonoBehaviour
     public void OnMusicValueChanged(float newValue)
     {
         Music.volume = newValue;
+
     }
 
 
@@ -85,8 +87,19 @@ public class MainMenuManger : MonoBehaviour
         }
 
         float volume = Mathf.Log10(newValue) * 20;
+        PlayerPrefs.SetFloat("SFX_Volume", newValue);// permet de recuper apres les preference du player en change Set par Get. 
+        MixerSFX.SetFloat("SFX_Volume", volume);
+    }
 
-        Mixer.SetFloat("SFX_Volume", volume);
+    public void OnVolumeValueChanges(float newValue)
+    {
+        if (newValue < 0.01f)
+        {
+            newValue = 0.01f;
+        }
+        float volume = Mathf.Log10(newValue) * 20;
+
+        MixerVolume.SetFloat("Volume_Volume", volume);
     }
 
 

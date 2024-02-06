@@ -9,7 +9,7 @@ public class SliderValue : MonoBehaviour
 
     public TMPro.TextMeshProUGUI TextValue;
     public Slider Slider;
-    public AudioMixer Mixer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +28,5 @@ public class SliderValue : MonoBehaviour
     }
 
 
-    public void OnSFXValueChanged(float newValue)
-    {
-        if (newValue < 0.01f)
-        {
-            newValue = 0.01f;
-        }
-
-        float volume = Mathf.Log10(newValue) * 20;
-
-        Mixer.SetFloat("SFX_Volume", volume);
-    }
+    
 }

@@ -44,21 +44,21 @@ public class GameCore : MonoBehaviour
     private void FixedUpdate()
     {
         //Player.transform.position le rayon commence de la, puis la direciotn, puis la taille du rayon et facultatif(le Layer sur les quelle ca fonctionne)
-        hit = Physics2D.Raycast(Player.transform.position, Vector3.down, 0.35f,LayerMask.GetMask("Default"));
-            if (hit.collider != null)
-            {
+        hit = Physics2D.Raycast(Player.transform.position, Vector3.down, 0.35f, LayerMask.GetMask("Default"));
+        if (hit.collider != null)
+        {
             //Affiche que dans l'editeur(Player.transform.position commencement, hit.point = impact du rayon, - un new vector2(player.x,player.y) car le player a 3 vecteur alors)
             //On en cree un vecteur2() avec que le x et le y et on le soustrait pour avoir la distance entre l'imapct et la balle puis la couleur
             _canShoot = true;
-                Debug.DrawRay(Player.transform.position, hit.point- new Vector2(Player.transform.position.x, Player.transform.position.y), Color.red);
-                Debug.Log("Did hit : "+hit.collider.name);
+            Debug.DrawRay(Player.transform.position, hit.point - new Vector2(Player.transform.position.x, Player.transform.position.y), Color.red);
+            Debug.Log("Did hit : " + hit.collider.name);
 
-            }
-            else
-            {
+        }
+        else
+        {
             _canShoot = false;
-                Debug.DrawRay(Player.transform.position, - Vector3.up, Color.yellow);
-            }
+            Debug.DrawRay(Player.transform.position, -Vector3.up, Color.yellow);
+        }
     }
 
     // Update is called once per frame
@@ -135,7 +135,7 @@ public class GameCore : MonoBehaviour
     //Fct qui gere le dezoom de la camera
     public void Camera()
     {
-        
+
         if (_canShoot == true)
         {
             //cam.orthographicSize = orthographic = type de la camera, Size = le Zoom
@@ -148,8 +148,8 @@ public class GameCore : MonoBehaviour
             cam.orthographicSize = 10;
             m_timerClick = 0;
         }
-        
-        
+
+
     }
 
     public static Vector2[] PreviewPhysics(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
@@ -187,7 +187,7 @@ public class GameCore : MonoBehaviour
     }
 }
 
-    // a utiliser si est si seulement on souhaite detruire quelque chose (ex enemeie une box,etc)
+// a utiliser si est si seulement on souhaite detruire quelque chose (ex enemeie une box,etc)
 
 //    private void OnCollisionEnter2D(Collision2D collision)
 //    {
