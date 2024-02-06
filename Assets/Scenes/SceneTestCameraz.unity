@@ -1223,12 +1223,14 @@ MonoBehaviour:
   m_timerClick: 0
   ImageRelaod: {fileID: 192718375}
   CurrentLevel: {fileID: 0}
-  Levels: []
+  Levels:
+  - {fileID: 0}
   lanceurVideoScript: {fileID: 0}
   Golfeur: {fileID: 0}
   Default_Image: {fileID: 0}
   Second_Image: {fileID: 0}
   Third_Image: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!4 &570681334
 Transform:
   m_ObjectHideFlags: 0

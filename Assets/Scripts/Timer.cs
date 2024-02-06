@@ -9,9 +9,8 @@ public class Timer : MonoBehaviour
 {
     public Animator animator;
     private float hasPlayed = 0;
-    public GameCore[] gameCore;
     public Image imageFade;
-    public GameObject spwaner;
+
 
     [Header("Component")]
     public TextMeshProUGUI timerText;
@@ -25,6 +24,7 @@ public class Timer : MonoBehaviour
     public bool hasLimit;
     public float timerLimit;
     public float timerAlarm;
+    public float save_currenttime;
 
     [Header("FormatSettings")]
     public bool hasFormat;
@@ -33,6 +33,9 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+        save_currenttime = currentTime;
+
+
         timeFormats.Add(TimerFormats.Whole, "0");
         timeFormats.Add(TimerFormats.TenthDecimal, "0.0");
         timeFormats.Add(TimerFormats.HundrethsDecimal, "0.00");
@@ -48,14 +51,15 @@ public class Timer : MonoBehaviour
         {
             currentTime = timerLimit;
             SetTimerText ();
-            timerText.color = Color.red;
             enabled = false;
-            imageFade.DOFade(1, 2.9f).OnComplete(FadeComplete);
+            ResetTimer();
+            //imageFade.DOFade(1, 2.9f).OnComplete(() => ResetTimer());
         }
         
         SetTimerText();
         if (currentTime < timerAlarm && hasPlayed == 0)
         {
+            timerText.color = Color.red;
             Debug.Log("ehfsieufhseuf");
             animator.SetTrigger("Move");
             hasPlayed = 1;
@@ -68,15 +72,11 @@ public class Timer : MonoBehaviour
         timerText.text = hasFormat ? currentTime.ToString(timeFormats[format]) : currentTime.ToString();
     }
     
-    public void FadeComplete()
-    {
-        spwaner.GetComponent<Spawner_Ball>().Reset_Position();
-        ResetTimer();
-
-    }
+   
     public void ResetTimer()
     {
-        Update();
+        currentTime = save_currenttime;
+
     }
 
     
