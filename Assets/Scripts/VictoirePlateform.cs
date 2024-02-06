@@ -24,6 +24,8 @@ public class VictoirePlateform : MonoBehaviour
         if (collision.gameObject.tag == ("Victoire"))
         {
             LanceurVideo.GetComponent<Lanceur_Vidéo>().Allumer();
+            print("Allumer");
+            //Couroutine()
             GameObject.Destroy(gameObject);
             //if (LanceurVideo.GetComponent<Lanceur_Vidéo>().On_Off == false)
             //{
