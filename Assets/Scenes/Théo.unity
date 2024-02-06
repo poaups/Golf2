@@ -4367,7 +4367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanceurVideo: {fileID: 0}
+  LanceurVideo: {fileID: 1985843777}
 --- !u!61 &941524281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5883,7 +5883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanceurVideo: {fileID: 0}
+  LanceurVideo: {fileID: 1985843777}
 --- !u!61 &1273480436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6901,7 +6901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanceurVideo: {fileID: 0}
+  LanceurVideo: {fileID: 1985843777}
 --- !u!61 &1468115069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8558,7 +8558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7adac2fce597b45bf49a59c719877b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanceurVideo: {fileID: 0}
+  LanceurVideo: {fileID: 1985843777}
 --- !u!50 &1783126990
 Rigidbody2D:
   serializedVersion: 4
@@ -9630,7 +9630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2078926677
 Transform:
   m_ObjectHideFlags: 0
