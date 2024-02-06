@@ -7,6 +7,7 @@ public class GameCore : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Camera cam; //Camera du player;
+    private bool _canShoot;
 
     [Header("Power Parameters")]
     public float ForceMax;
@@ -29,6 +30,8 @@ public class GameCore : MonoBehaviour
     public SpriteRenderer Second_Image;
     public SpriteRenderer Third_Image;
 
+    RaycastHit2D hit;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,26 +41,33 @@ public class GameCore : MonoBehaviour
 
 
     }
+    private void FixedUpdate()
+    {
+        //Player.transform.position le rayon commence de la, puis la direciotn, puis la taille du rayon et facultatif(le Layer sur les quelle ca fonctionne)
+        hit = Physics2D.Raycast(Player.transform.position, Vector3.down, 0.35f,LayerMask.GetMask("Default"));
+            if (hit.collider != null)
+            {
+            //Affiche que dans l'editeur(Player.transform.position commencement, hit.point = impact du rayon, - un new vector2(player.x,player.y) car le player a 3 vecteur alors)
+            //On en cree un vecteur2() avec que le x et le y et on le soustrait pour avoir la distance entre l'imapct et la balle puis la couleur
+            _canShoot = true;
+                Debug.DrawRay(Player.transform.position, hit.point- new Vector2(Player.transform.position.x, Player.transform.position.y), Color.red);
+                Debug.Log("Did hit : "+hit.collider.name);
+
+            }
+            else
+            {
+            _canShoot = false;
+                Debug.DrawRay(Player.transform.position, - Vector3.up, Color.yellow);
+            }
+    }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(_canShoot + "can shoot");
 
         ImageRelaod.fillAmount = m_timerClick;
         Debug.Log(m_timerClick);
-
-        //code caca sa sert a rien mdrrr 
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    rb.simulated = true;
-        //    rb.AddForce(new Vector2(ForceMin, ForceMax), ForceMode2D.Impulse);
-        //}
-        //if (rb.velocity.magnitude > 0.00001f)
-        //{
-        //    float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-        //    rb.transform.rotation = Quaternion.Euler(0, 0, angle);
-        //}
 
         Golfeur_Image();
         Puissance();
@@ -111,7 +121,7 @@ public class GameCore : MonoBehaviour
             m_timerClick += Time.deltaTime;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && _canShoot == true)
         {
 
             force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
@@ -125,9 +135,20 @@ public class GameCore : MonoBehaviour
     //Fct qui gere le dezoom de la camera
     public void Camera()
     {
-        //cam.orthographicSize = orthographic = type de la camera, Size = le Zoom
-        //Par defaut le size de la camera est a 10 alors je l'additione a m_timerClick
-        cam.orthographicSize = 10 + m_timerClick;
+        
+        if (_canShoot == true)
+        {
+            //cam.orthographicSize = orthographic = type de la camera, Size = le Zoom
+            //Par defaut le size de la camera est a 10 alors je l'additione a m_timerClick
+            cam.orthographicSize = 10 + m_timerClick;
+        }
+        else
+        {
+            //Si je peux pas tirer je reset la position de la camera + m_timerClick
+            cam.orthographicSize = 10;
+            m_timerClick = 0;
+        }
+        
         
     }
 
