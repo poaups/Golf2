@@ -6,12 +6,12 @@ public class PlateformDeath : MonoBehaviour
 {
     public Transform Spawner;
     public GameObject MainCamera;
-    private Transform __all;
-
-    private Transform ballTransform;
+    public GameObject Gamecore;
     public SpriteRenderer SpriteRenderer2;
+
+    private Transform __all;
+    private Transform ballTransform;
     
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -30,10 +30,12 @@ public class PlateformDeath : MonoBehaviour
             SpriteRenderer2.color = new Color(1f, 1f, 1f, 0f); // Opacité a 0
             MainCamera.GetComponent<Shake>().start = true;
             Reset_Position();
+            Gamecore.GetComponent<GameCore>().Reset_Velocity();   //Fct Reset_Velocity du script GameCore qui annule la vitesse
 
         }
     }
 
+    //Baisse de l'opacité, teleportation au Spawner posé dans la scene
     public void Reset_Position()
     {
         SpriteRenderer2.color = new Color(1f, 1f, 1f, 1f); // Opacité a 100

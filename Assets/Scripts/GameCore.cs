@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public Camera cam; //Camera du player;
+    public Rigidbody2D rb; //Rigibody du plaer
+    public Camera cam; //Camera du player
     private bool _canShoot;
 
     [Header("Power Parameters")]
@@ -185,6 +185,12 @@ public class GameCore : MonoBehaviour
             Gizmos.DrawSphere(item, 0.05f);
         }
     }
+
+    public void Reset_Velocity()
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
+
 }
 
 // a utiliser si est si seulement on souhaite detruire quelque chose (ex enemeie une box,etc)
