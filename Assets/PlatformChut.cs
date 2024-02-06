@@ -34,19 +34,19 @@ public class PlatformChut : MonoBehaviour
         if (collision.gameObject.tag == ("Chute"))
         {
             Debug.Log("Collision");
-            StartCoroutine(TimerActive());
+            ActiverSimulation();
 
         
         }
     }
-    IEnumerator TimerActive()
-    {
-        Debug.Log("Startdela couroutine");
-        yield return new WaitForSeconds(Time);
-        //Debug.Log("Ca marche un peu ");
-        //yield return null;
+    //IEnumerator TimerActive()
+    //{
+    //    Debug.Log("Startdela couroutine");
+    //    yield return new WaitForSeconds(Time);
+    //    //Debug.Log("Ca marche un peu ");
+    //    //yield return null;
 
-        ActiverSimulation();
+    //    ActiverSimulation();
 
-    }
+    //}
 }

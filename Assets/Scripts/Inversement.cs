@@ -19,7 +19,7 @@ public class Inversement : MonoBehaviour
             isInverse = !isInverse;
 
             InverserPosition();
-            InvertGravity();
+            //InvertGravity();
         }
     }
 
@@ -36,10 +36,10 @@ public class Inversement : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-    public void InvertGravity()
-    {
-        Vector2 currentGravity = Physics2D.gravity;
-        Physics2D.gravity = new Vector2(currentGravity .x, -currentGravity.y);
-        rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
-    }
+    //public void InvertGravity()
+    //{
+    //    Vector2 currentGravity = Physics2D.gravity;
+    //    Physics2D.gravity = new Vector2(currentGravity .x, -currentGravity.y);
+    //    rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
+    //}
 }
