@@ -1258,7 +1258,6 @@ MonoBehaviour:
   CurrentLevel: {fileID: 0}
   Levels:
   - {fileID: 0}
-  lanceurVideoScript: {fileID: 0}
   Golfeur: {fileID: 0}
   Default_Image: {fileID: 0}
   Second_Image: {fileID: 0}
@@ -1294,6 +1293,8 @@ MonoBehaviour:
   MenuPause: {fileID: 1999844759}
   ImageFade: {fileID: 2124754749}
   OptionsPauseMenu: {fileID: 480562992}
+  MixerSFX: {fileID: 0}
+  MixerVolume: {fileID: 0}
 --- !u!1 &573944426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1525,37 @@ Transform:
   - {fileID: 56734785}
   m_Father: {fileID: 876263469}
   m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &826038411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826038412}
+  m_Layer: 0
+  m_Name: Louis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &826038412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826038411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.374918, y: -5.9595366, z: 0.0898777}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846141763
 GameObject:
