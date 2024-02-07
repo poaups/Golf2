@@ -21,8 +21,9 @@ public class Lanceur_Glitch : MonoBehaviour
     {
         if(!Glitch.activeSelf)// .activeSelf s'auto detecte son activation (true / false)
         {
-            Glitch.SetActive(true);
+        
             StartCoroutine(Tempsactivation());
+            
         }
         else
         {
@@ -30,8 +31,11 @@ public class Lanceur_Glitch : MonoBehaviour
         }
     }
 
+    //Activation + temps
     IEnumerator Tempsactivation()
     {
+        Glitch.SetActive(true);
         yield return new WaitForSeconds(Waiting);
+        Glitch.SetActive(false);
     }
 }

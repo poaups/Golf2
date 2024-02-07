@@ -21,7 +21,7 @@ public class GameCore : MonoBehaviour
     public Level[] Levels;
 
     [Header("Vidéo Parameters")]
-    public Lanceur_Vidéo lanceurVideoScript;
+    //public Lanceur_Vidéo lanceurVideoScript;
     public static float force;
 
     [Header("Golf Visuel")]
@@ -84,7 +84,7 @@ public class GameCore : MonoBehaviour
         if (victoireAlive == 0)
         {
             Debug.Log("Victoire");
-            lanceurVideoScript.Allumer();
+            //lanceurVideoScript.Allumer();
 
             s_currentLevel++;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
@@ -170,9 +170,14 @@ public class GameCore : MonoBehaviour
         }
         return results;
     }
+
+    //Affichage Gizmo 
     private void OnDrawGizmos()
     {
+        //Gizmo de max
         Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMin / rb.mass, ForceMin / rb.mass), 200);
+
+        //Gizmo min
         Vector2[] point = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMax / rb.mass, ForceMax / rb.mass), 200);
 
         foreach (var item in point)
@@ -186,6 +191,7 @@ public class GameCore : MonoBehaviour
         }
     }
 
+    //Renitialisation de la Velocité
     public void Reset_Velocity()
     {
         rb.velocity = new Vector2(0, 0);
