@@ -15,8 +15,8 @@ public class Lanceur_Vidéo : MonoBehaviour
     void Start()
     {
         videoPlayer = videoPlayerObject.GetComponent<VideoPlayer>();
-        videoPlayerObject.SetActive(false);
-        Raw.gameObject.SetActive(false);
+        videoPlayerObject.SetActive(true);
+        Raw.gameObject.SetActive(true);
     }
 
     void Update()
