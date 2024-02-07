@@ -44,7 +44,7 @@ public class GameCore : MonoBehaviour
     private void FixedUpdate()
     {
         //Player.transform.position le rayon commence de la, puis la direciotn, puis la taille du rayon et facultatif(le Layer sur les quelle ca fonctionne)
-        hit = Physics2D.Raycast(Player.transform.position, Vector3.down, 0.35f, LayerMask.GetMask("Default"));
+        hit = Physics2D.Raycast(Player.transform.position, Vector3.down, 0.50f, LayerMask.GetMask("Default"));
         if (hit.collider != null)
         {
             //Affiche que dans l'editeur(Player.transform.position commencement, hit.point = impact du rayon, - un new vector2(player.x,player.y) car le player a 3 vecteur alors)

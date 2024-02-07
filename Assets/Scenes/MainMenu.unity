@@ -1323,8 +1323,9 @@ GameObject:
   - component: {fileID: 470341960}
   - component: {fileID: 470341964}
   - component: {fileID: 470341963}
+  - component: {fileID: 470341965}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Back_Button_Credits_Visuel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1408,7 +1409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8773585, g: 0.19450872, b: 0.19450872, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1463,6 +1464,22 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!111 &470341965
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470341958}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0b95a936f5e9ebb41b53d4ddb5e0b018, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0b95a936f5e9ebb41b53d4ddb5e0b018, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &476288438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,8 +3183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 245cb0676c2aa2640b29d4b0dd1277ae, type: 2}
+  m_sharedMaterial: {fileID: 7750518762257659504, guid: 245cb0676c2aa2640b29d4b0dd1277ae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3191,8 +3208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4016,6 +4033,10 @@ PrefabInstance:
     - target: {fileID: 5057245064774645498, guid: 45cffad14d0b80443acc50d17d3170a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412486183652852341, guid: 45cffad14d0b80443acc50d17d3170a3, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5960274566083708040, guid: 45cffad14d0b80443acc50d17d3170a3, type: 3}
       propertyPath: m_Name
