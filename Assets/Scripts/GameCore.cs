@@ -175,20 +175,20 @@ public class GameCore : MonoBehaviour
     private void OnDrawGizmos()
     {
         //Gizmo de max
-        Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMin / rb.mass, ForceMin / rb.mass), 200);
+        //Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMin / rb.mass, ForceMin / rb.mass), 200);
 
         //Gizmo min
         Vector2[] point = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMax / rb.mass, ForceMax / rb.mass), 200);
 
         foreach (var item in point)
         {
-            Gizmos.DrawSphere(item, 0.05f);
+            Gizmos.DrawSphere(item, 0.05f); //Taille des gizmos
         }
 
-        foreach (var item in points)
-        {
-            Gizmos.DrawSphere(item, 0.05f);
-        }
+        //foreach (var item in points)
+        //{
+        //    Gizmos.DrawSphere(item, 0.05f);
+        //}
     }
 
     //Renitialisation de la Velocité
