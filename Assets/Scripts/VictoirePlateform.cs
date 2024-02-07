@@ -25,12 +25,7 @@ public class VictoirePlateform : MonoBehaviour
         {
             LanceurVideo.GetComponent<Lanceur_Glitch>().Activation();
             print("Allumer");
-            //Couroutine()
             GameObject.Destroy(gameObject);
-            //if (LanceurVideo.GetComponent<Lanceur_Vidéo>().On_Off == false)
-            //{
-            //    GameObject.Destroy(gameObject);
-            //}
         }
     }
 }

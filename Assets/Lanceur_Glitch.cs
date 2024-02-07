@@ -7,6 +7,8 @@ public class Lanceur_Glitch : MonoBehaviour
     public GameObject Glitch;
     public float Waiting;
 
+    private float _saveWaiting;
+
     void Start()
     {
         Glitch.SetActive(false);
@@ -14,7 +16,12 @@ public class Lanceur_Glitch : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            Waiting = 0.10f;
+            Activation();
+            Waiting = _saveWaiting;
+        }
     }
 
     public void Activation()

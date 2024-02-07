@@ -41,6 +41,8 @@ public class GameCore : MonoBehaviour
 
 
     }
+
+    //Pas de saut en l'air grace a un raycast
     private void FixedUpdate()
     {
         //Player.transform.position le rayon commence de la, puis la direciotn, puis la taille du rayon et facultatif(le Layer sur les quelle ca fonctionne)
@@ -61,7 +63,6 @@ public class GameCore : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.Log(_canShoot + "can shoot");

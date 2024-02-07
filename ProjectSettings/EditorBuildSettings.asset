@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 7613a6c48302a254fa734813e47fd194
   - enabled: 1
+    path: Assets/Scenes/Simon5.unity
+    guid: f73fe9871d39f194a9f2a363dbced377
+  - enabled: 0
     path: Assets/Scenes/SceneTestCameraz.unity
     guid: 9d5cd943baed16e4bbe2b835d80c4b30
   m_configObjects: {}
