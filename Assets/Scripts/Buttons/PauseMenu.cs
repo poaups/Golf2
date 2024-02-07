@@ -5,12 +5,17 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
 
     [SerializeField] private GameObject MenuPause;
     [SerializeField] private Image ImageFade;
+    public GameObject OptionsPauseMenu;
+    private AudioSource Music;
+    public AudioMixer MixerSFX;
+    public AudioMixer MixerVolume;
 
     void Update()
     {
@@ -44,5 +49,44 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Application.Quit();
+    }
+
+    public void OnClickOptions()
+    {
+        OptionsPauseMenu.SetActive(true);
+    }
+
+    public void OnMusicValueChanged(float newValue)
+    {
+        Music.volume = newValue;
+
+    }
+
+    public void OnClickBackOptions()
+    {
+        OptionsPauseMenu.SetActive(false);
+    }
+
+    public void OnSFXValueChanged(float newValue)
+    {
+        if (newValue < 0.01f)
+        {
+            newValue = 0.01f;
+        }
+
+        float volume = Mathf.Log10(newValue) * 20;
+        PlayerPrefs.SetFloat("SFX_Volume", newValue);// permet de recuper apres les preference du player en change Set par Get. 
+        MixerSFX.SetFloat("SFX_Volume", volume);
+    }
+
+    public void OnVolumeValueChanges(float newValue)
+    {
+        if (newValue < 0.01f)
+        {
+            newValue = 0.01f;
+        }
+        float volume = Mathf.Log10(newValue) * 20;
+
+        MixerVolume.SetFloat("Volume_Volume", volume);
     }
 }
