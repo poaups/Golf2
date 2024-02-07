@@ -178,7 +178,7 @@ public class GameCore : MonoBehaviour
         //Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMin / rb.mass, ForceMin / rb.mass), 200);
 
         //Gizmo min
-        Vector2[] point = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMax / rb.mass, ForceMax / rb.mass), 200);
+        Vector2[] point = PreviewPhysics(rb, rb.transform.position, new Vector2( m_timerClick / rb.mass * 12, m_timerClick / rb.mass * 12), 200);
 
         foreach (var item in point)
         {
