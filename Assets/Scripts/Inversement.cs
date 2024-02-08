@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class Inversement : MonoBehaviour
 {
-    private bool isInverse = false;
     public Rigidbody2D rb;
 
+    private bool isInverse = false;
+    
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();     
+        //Rigidbody du gameobjecy de tous les niveaux
+        rb = GetComponent<Rigidbody2D>();
+        isInverse = true;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.V)) 
         {
-            isInverse = !isInverse;
-
             InverserPosition();
-            //InvertGravity();
         }
     }
 
+    //Inversion du gameobject des niveaux
     public void InverserPosition()
     {
+        isInverse = !isInverse;
         if (isInverse)
         {
             transform.localScale = new Vector3(1f, -1f, 1f);
@@ -36,10 +38,4 @@ public class Inversement : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
-    //public void InvertGravity()
-    //{
-    //    Vector2 currentGravity = Physics2D.gravity;
-    //    Physics2D.gravity = new Vector2(currentGravity .x, -currentGravity.y);
-    //    rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
-    //}
 }

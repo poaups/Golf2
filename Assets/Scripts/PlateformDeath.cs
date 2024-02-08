@@ -8,6 +8,7 @@ public class PlateformDeath : MonoBehaviour
     public GameObject MainCamera;
     public GameObject Gamecore;
     public SpriteRenderer SpriteRenderer2;
+    public GameObject GameDesing;
 
     private Transform __all;
     private Transform ballTransform;
@@ -31,6 +32,10 @@ public class PlateformDeath : MonoBehaviour
             MainCamera.GetComponent<Shake>().start = true;
             Reset_Position();
             Gamecore.GetComponent<GameCore>().Reset_Velocity();   //Fct Reset_Velocity du script GameCore qui annule la vitesse
+            //Reverse le niveau
+            
+            GameDesing.GetComponent<Inversement>().InverserPosition();
+            print("reverselvl");
 
         }
     }

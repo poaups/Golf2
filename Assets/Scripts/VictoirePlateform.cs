@@ -7,13 +7,11 @@ public class VictoirePlateform : MonoBehaviour
     public GameObject LanceurVideo;
 
     
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -21,11 +19,10 @@ public class VictoirePlateform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Victoire"))
+        if (collision.gameObject.tag == ("Victoire")) 
         {
-            LanceurVideo.GetComponent<Lanceur_Glitch>().Activation();
-            print("Allumer");
-            GameObject.Destroy(gameObject);
+            LanceurVideo.GetComponent<Lanceur_Glitch>().Activation();//Lancement glitch
+            GameObject.Destroy(gameObject);//detruire la plateforme de victoire
         }
     }
 }
