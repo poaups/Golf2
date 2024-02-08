@@ -16,21 +16,34 @@ public class PauseMenu : MonoBehaviour
     private AudioSource Music;
     public AudioMixer MixerSFX;
     public AudioMixer MixerVolume;
+    public Rigidbody2D rigiplayer;
 
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Input.GetKeyDown(KeyCode.P))
         {
             MenuPause.SetActive(true);
             Time.timeScale = 0f;
         }
+
+       
     }
 
 
     public void OnClickResume()
     {
-        Time.timeScale = 1f;
+        rigiplayer.velocity = new Vector2(0, 0);
+
+
+        print("M_timerclick avant la bombe"+GetComponent<GameCore>().m_timerClick);
+  
         MenuPause.SetActive(false);
+        Time.timeScale = 1f;
+        GetComponent<GameCore>().m_timerClick = 0;
+        print("M_timerclickapres la bombe" + GetComponent<GameCore>().m_timerClick);
+        
+
+
 
     }
 
@@ -54,6 +67,7 @@ public class PauseMenu : MonoBehaviour
     public void OnClickOptions()
     {
         OptionsPauseMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void OnMusicValueChanged(float newValue)
@@ -89,4 +103,6 @@ public class PauseMenu : MonoBehaviour
 
         MixerVolume.SetFloat("Volume_Volume", volume);
     }
+
+
 }
