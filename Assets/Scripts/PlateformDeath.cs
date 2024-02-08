@@ -33,7 +33,8 @@ public class PlateformDeath : MonoBehaviour
             Reset_Position();
             Gamecore.GetComponent<GameCore>().Reset_Velocity();   //Fct Reset_Velocity du script GameCore qui annule la vitesse
             //Reverse le niveau
-            
+            //GameDesing.GetComponent<Inversement>().Isinverse = tr;
+            GameDesing.GetComponent<Inversement>().isInverse=false;
             GameDesing.GetComponent<Inversement>().InverserPosition();
 
         }
