@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameCore : MonoBehaviour
 {
@@ -32,9 +33,14 @@ public class GameCore : MonoBehaviour
 
     RaycastHit2D hit;
     public GameObject Player;
+    public GameObject Maprefabs;
     // Start is called before the first frame update
     void Start()
     {
+        // Obtenir le nom de la scène actuelle
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
         CurrentLevel = Levels[s_currentLevel];
         CurrentLevel.gameObject.SetActive(true);
     }
@@ -50,7 +56,7 @@ public class GameCore : MonoBehaviour
             //On en cree un vecteur2() avec que le x et le y et on le soustrait pour avoir la distance entre l'imapct et la balle puis la couleur
             _canShoot = true;
             Debug.DrawRay(Player.transform.position, hit.point - new Vector2(Player.transform.position.x, Player.transform.position.y), Color.red);
-            Debug.Log("Did hit : " + hit.collider.name);
+            
 
         }
         else
@@ -62,7 +68,18 @@ public class GameCore : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_canShoot + "can shoot");
+        //if(Input.GetKeyDown(KeyCode.N))
+        //{
+        //    OnDrawGizmos();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    DestroyGizmos();
+        //}
+
+
+ 
 
         ImageRelaod.fillAmount = m_timerClick;
         Debug.Log(m_timerClick);
@@ -81,11 +98,11 @@ public class GameCore : MonoBehaviour
         }
         if (victoireAlive == 0)
         {
-            Debug.Log("Victoire");
+       
             //lanceurVideoScript.Allumer();
 
             s_currentLevel++;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
         }
     }
@@ -138,12 +155,12 @@ public class GameCore : MonoBehaviour
         {
             //cam.orthographicSize = orthographic = type de la camera, Size = le Zoom
             //Par defaut le size de la camera est a 10 alors je l'additione a m_timerClick
-            cam.orthographicSize = 10 + m_timerClick;
+            cam.orthographicSize = 12 + m_timerClick;
         }
         else
         {
             //Si je peux pas tirer je reset la position de la camera + m_timerClick
-            cam.orthographicSize = 10;
+            cam.orthographicSize = 12;
             m_timerClick = 0;
         }
 
@@ -170,30 +187,93 @@ public class GameCore : MonoBehaviour
         return results;
     }
 
-    //Affichage Gizmo 
-    private void OnDrawGizmos()
-    {
-        //Gizmo de max
-        //Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMin / rb.mass, ForceMin / rb.mass), 200);
+    ////Affichage Gizmo 
+    //private void OnDrawGizmos()
+    //{
+    //    Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(m_timerClick / rb.mass * 12, m_timerClick / rb.mass * 12), 200);
 
-        //Gizmo min
-        Vector2[] point = PreviewPhysics(rb, rb.transform.position, new Vector2( m_timerClick / rb.mass * 12, m_timerClick / rb.mass * 12), 200);
+    //    int maxPrefabs = 0; // Déplacer la déclaration et l'initialisation en dehors de la boucle
 
-        foreach (var item in point)
-        {
-            Gizmos.DrawSphere(item, 0.05f); //Taille des gizmos
-        }
+    //    foreach (var point in points)
+    //    {
+    //        if (maxPrefabs < 30) // Vérifier si le nombre d'instances créées est inférieur à 30
+    //        {
+    //            Instantiate(Maprefabs, point, Quaternion.identity);
+    //            maxPrefabs++; // Incrémenter le compteur après avoir instancié un prefab
+    //        }
+    //    }
+    //}
 
-        //foreach (var item in points)
-        //{
-        //    Gizmos.DrawSphere(item, 0.05f);
-        //}
-    }
+    //private void DestroyGizmos()
+    //{
+    //    // Récupérer tous les objets de la scène
+    //    GameObject[] allObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+
+    //    // Parcourir tous les objets de la scène
+    //    foreach (GameObject obj in allObjects)
+    //    {
+    //        // Faire quelque chose avec chaque objet, par exemple, afficher leur nom
+    //        Debug.Log("Nom de l'objet : " + obj.name);
+    //    }
+    //    //if (obj.name == "r(Clone)")
+    //    //{
+    //    //    Debug.Log("Objet à détruire trouvé !");
+    //    //    Destroy(obj);
+    //    //}
+    //    //GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Prefabs");
+    //    //foreach (var obj in objectsWithTag)
+    //    //{
+    //    //    Debug.Log("Objet trouvé avec le nom : " + obj.name);
+    //    //    if (obj.name == "r(Clone)")
+    //    //    {
+    //    //        Debug.Log("Objet à détruire trouvé !");
+    //    //        Destroy(obj);
+    //    //    }
+    //    //}
+    //}
+
 
     //Renitialisation de la Velocité
     public void Reset_Velocity()
     {
         rb.velocity = new Vector2(0, 0);
     }
+
+
+
+//public void CircleOfPoint()
+//    {
+//        if (pointsNumbers > 30)
+//        {
+//            pointsNumbers = 30;
+//        }
+//        if (pointsAreActive == false)
+//        {
+//            float valueAngleEachPoint = 360f / pointsNumbers;
+
+//            for (int i = 0; i < pointsNumbers; i++)
+//            {
+//                float angle = i * valueAngleEachPoint * Mathf.Deg2Rad; //Mathf.Deg2Rad = (PI * 2)/360 ° = ((2 * PI) / 360) * (180 / PI) = (2/360) * 180 = 1°
+
+//                Vector2 pointPosition = new Vector2(transform.position.x + Mathf.Cos(angle) * 3, transform.position.y + Mathf.Sin(angle) * 3);
+//                GameObject point = Instantiate(PointArround, pointPosition, Quaternion.identity);
+
+//                //Gizmos.DrawSphere(pointPosition, 0.05f);
+//            }
+//            pointsAreActive = true;
+//        }
+//    }
+//.
+
+//SUPPRIMER LE CERCLE
+
+//GameObject[] PointsToDestroy = GameObject.FindGameObjectsWithTag("PointGizmo");
+//foreach (GameObject obj in PointsToDestroy)
+//{
+//        if (obj.name == "PointGizmo(Clone)")
+//        {
+//                 Destroy(obj);
+//}
+//}
 
 }

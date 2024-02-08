@@ -35,7 +35,6 @@ public class PlateformDeath : MonoBehaviour
             //Reverse le niveau
             
             GameDesing.GetComponent<Inversement>().InverserPosition();
-            print("reverselvl");
 
         }
     }
