@@ -24,7 +24,7 @@ public class Inversement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.V))
         {
-            isInverse = true;
+            isInverse = !isInverse;
             InverserPosition();
         }
     }
