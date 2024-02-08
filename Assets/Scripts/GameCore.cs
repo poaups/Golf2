@@ -37,9 +37,6 @@ public class GameCore : MonoBehaviour
     {
         CurrentLevel = Levels[s_currentLevel];
         CurrentLevel.gameObject.SetActive(true);
-        //lanceurVideoScript = GetComponent<Lanceur_Vidéo>();
-
-
     }
 
     //Pas de saut en l'air grace a un raycast
@@ -153,6 +150,7 @@ public class GameCore : MonoBehaviour
 
     }
 
+    //Calcule de la trajection de la preview
     public static Vector2[] PreviewPhysics(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
     {
         Vector2[] results = new Vector2[steps];
@@ -199,14 +197,3 @@ public class GameCore : MonoBehaviour
     }
 
 }
-
-// a utiliser si est si seulement on souhaite detruire quelque chose (ex enemeie une box,etc)
-
-//    private void OnCollisionEnter2D(Collision2D collision)
-//    {
-//        if (GetComponent < Rigidbody2D>().velocity.magnitude >= 0.5f)
-//        {
-//            GameObject.Destroy(gameObject);
-//        }
-//    }
-//}

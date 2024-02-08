@@ -25,26 +25,14 @@ public class PauseMenu : MonoBehaviour
             MenuPause.SetActive(true);
             Time.timeScale = 0f;
         }
-
-       
     }
 
 
     public void OnClickResume()
     {
-        rigiplayer.velocity = new Vector2(0, 0);
-
-
-        print("M_timerclick avant la bombe"+GetComponent<GameCore>().m_timerClick);
-  
         MenuPause.SetActive(false);
         Time.timeScale = 1f;
         GetComponent<GameCore>().m_timerClick = 0;
-        print("M_timerclickapres la bombe" + GetComponent<GameCore>().m_timerClick);
-        
-
-
-
     }
 
     public void OnClickLeave()
