@@ -10,13 +10,19 @@ public class Inversement : MonoBehaviour
     
     void Start()
     {
-        //Rigidbody du gameobjecy de tous les niveaux
+        //Rigidbody du gameobject de tous les niveaux
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V)) 
+        InputInversement();
+    }
+
+    //True = niveau retourné / False = normal
+    public void InputInversement()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
         {
             isInverse = true;
             InverserPosition();

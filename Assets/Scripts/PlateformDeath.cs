@@ -11,7 +11,7 @@ public class PlateformDeath : MonoBehaviour
     public GameObject GameDesing;
 
     private Transform __all;
-    private Transform ballTransform;
+    //private Transform ballTransform;
     
     void Start()
     {
@@ -19,7 +19,6 @@ public class PlateformDeath : MonoBehaviour
         __all = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -31,11 +30,9 @@ public class PlateformDeath : MonoBehaviour
             SpriteRenderer2.color = new Color(1f, 1f, 1f, 0f); // Opacité a 0
             MainCamera.GetComponent<Shake>().start = true;
             Reset_Position();
-            Gamecore.GetComponent<GameCore>().Reset_Velocity();   //Fct Reset_Velocity du script GameCore qui annule la vitesse
-            //Reverse le niveau
-            //GameDesing.GetComponent<Inversement>().Isinverse = tr;
-            GameDesing.GetComponent<Inversement>().isInverse=false;
-            GameDesing.GetComponent<Inversement>().InverserPosition();
+            Gamecore.GetComponent<GameCore>().Reset_Velocity();         //Fct Reset_Velocity du script GameCore qui annule la vitesse
+            GameDesing.GetComponent<Inversement>().isInverse = false;   //Variable qui change la gravité des niv dans le script Inversement
+            GameDesing.GetComponent<Inversement>().InverserPosition();  //Fct appelé qui active l'inversion de gravité dans le script Inversement
 
         }
     }
