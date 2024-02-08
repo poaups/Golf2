@@ -33719,6 +33719,7 @@ MonoBehaviour:
   ForceMin: 4
   m_timerClick: 0
   ImageRelaod: {fileID: 192718375}
+  CurrentLevel: {fileID: 0}
   Levels:
   - {fileID: 2078926678}
   - {fileID: 367701080}
@@ -116385,7 +116386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2078926677
 Transform:
   m_ObjectHideFlags: 0
