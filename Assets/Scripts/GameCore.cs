@@ -26,9 +26,9 @@ public class GameCore : MonoBehaviour
 
     [Header("Golf Visuel")]
     public GameObject Golfeur;
-    public SpriteRenderer Default_Image;
-    public SpriteRenderer Second_Image;
-    public SpriteRenderer Third_Image;
+    public Image Default_Image;
+    public Image Second_Image;
+    public Image Third_Image;
 
     RaycastHit2D hit;
     public GameObject Player;
@@ -105,16 +105,16 @@ public class GameCore : MonoBehaviour
         //m_timerClick etant bloqué a 1 max
         if (m_timerClick <= 0.33)
         {
-            Golfeur.GetComponent<SpriteRenderer>().sprite = Default_Image.sprite;
+            Golfeur.GetComponent<Image>().sprite = Default_Image.sprite;
 
         }
         else if (m_timerClick >= 0.33 && m_timerClick <= 0.66)
         {
-            Golfeur.GetComponent<SpriteRenderer>().sprite = Second_Image.sprite;
+            Golfeur.GetComponent<Image>().sprite = Second_Image.sprite;
         }
         else
         {
-            Golfeur.GetComponent<SpriteRenderer>().sprite = Third_Image.sprite;
+            Golfeur.GetComponent<Image>().sprite = Third_Image.sprite;
         }
 
     }
