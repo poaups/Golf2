@@ -79,6 +79,7 @@ public class GameCore : MonoBehaviour
         Puissance();
         Camera();
         DestroyGuizmos();
+        DisableGolfeur();
 
         int victoireAlive = 0;
         foreach (var item in CurrentLevel.platformVictoire)
@@ -96,6 +97,14 @@ public class GameCore : MonoBehaviour
             s_currentLevel++;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
+        }
+    }
+
+    public void DisableGolfeur()
+    {
+        if(s_currentLevel >= 1)
+        {
+            Golfeur.SetActive(false);
         }
     }
 

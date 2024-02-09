@@ -7,7 +7,9 @@ public class Inversement : MonoBehaviour
     public Rigidbody2D rb;
 
     public bool isInverse = false;
-    
+    public KeyCode _touche;
+
+
     void Start()
     {
         //Rigidbody du gameobject de tous les niveaux
@@ -22,7 +24,7 @@ public class Inversement : MonoBehaviour
     //True = niveau retourné / False = normal
     public void InputInversement()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(_touche))
         {
             isInverse = !isInverse;
             InverserPosition();

@@ -8,7 +8,6 @@ public class Personnalisation : MonoBehaviour
     public Sprite SpriteR_2;
     public Sprite SpriteR_3;
     public Sprite SpriteR_4;
-    public GameObject Light;
 
     private int _currentLevel;
     private SpriteRenderer spriteRenderer;
