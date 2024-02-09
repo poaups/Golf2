@@ -38,7 +38,7 @@ public class MainMenuManger : MonoBehaviour
 
     private void FadeComplete()
     {
-        SceneManager.LoadScene("SceneTestCameraz");
+        SceneManager.LoadScene("TheFinalScene");
     }
 
     public void OnClickOptions()
