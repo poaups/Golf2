@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheFinalScene.unity
     guid: ca436933e5837fe43aa81d86d8929fab
+  - enabled: 1
+    path: Assets/Scenes/SceneWin.unity
+    guid: 22a1d12034d285d4497a6d904d8a1a0b
   m_configObjects: {}
