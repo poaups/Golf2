@@ -16,7 +16,7 @@ public class MainMenuManger : MonoBehaviour
     [SerializeField] private GameObject menuOptions;
     [SerializeField] private GameObject menuCredits;
     private AudioSource Music;
-    public AudioClip ClickMenu;
+    public AudioSource ClickMenu;
     
     
     [Header("Animation Credits")]
@@ -29,9 +29,10 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickPlay()
     {
+        ClickMenu.Play();
         imageFade.gameObject.SetActive(true);
         imageFade.DOFade(1, 2.9f).OnComplete(FadeComplete);
-        Music.PlayOneShot(ClickMenu);
+        
 
     }
 
@@ -42,7 +43,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickOptions()
     {
-        Music.PlayOneShot(ClickMenu);
+        ClickMenu.Play();
         imageFade.gameObject.SetActive(true);
         imageFade.DOFade(1, 2.9f).OnComplete(FadeCompleteOptions);
         
@@ -56,7 +57,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickExit()
     {
-        Music.PlayOneShot(ClickMenu);
+        ClickMenu.Play();
         menuOptions.SetActive(false);
         menuCredits.SetActive(false);
     }
@@ -64,7 +65,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickCredits()
     {
-        Music.PlayOneShot(ClickMenu);
+        
         //Animator Credits
         Animator animator_Credits = Background.GetComponent<Animator>();
         if(animator_Credits != null)
@@ -88,6 +89,7 @@ public class MainMenuManger : MonoBehaviour
         Animator animator_BackButton = Back_Button.GetComponent<Animator>();
         if (animator_BackButton != null)
         {
+           
             bool Isopen_BackButton = animator_BackButton.GetBool("Open_BackButton");
             animator_BackButton.SetBool("Open_BackButton", !Isopen_BackButton);
         }
@@ -105,7 +107,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickQuit()
     {
-        Music.PlayOneShot(ClickMenu);
+        ClickMenu.Play();
         Application.Quit();
     }
     
