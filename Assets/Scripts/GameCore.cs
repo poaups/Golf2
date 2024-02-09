@@ -193,7 +193,7 @@ public class GameCore : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             // Supprimer les 20 derniers prefabs
-            int numToDestroy = Mathf.Min(20, instantiatedPrefabs.Count); // Nombre de prefabs à supprimer
+            int numToDestroy = Mathf.Min(20, instantiatedPrefabs.Count); // Nombre de prefabs ? supprimer
             for (int i = 0; i < numToDestroy; i++)
             {
                 int lastIndex = instantiatedPrefabs.Count - 1;
@@ -233,7 +233,6 @@ public class GameCore : MonoBehaviour
                 instantiatedPrefabs.Add(instantiatedPrefab);
             }
 
-            print(pointsToShow + " points affichés et objets instanciés");
         }
     }
 
