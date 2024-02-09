@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GetComponent<GameCore>().m_timerClick = 0;
+            //GetComponent<GameCore>().m_timerClick = 0;
             Time.timeScale = 0f;
             MenuPause.SetActive(true);
            
@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         MenuPause.SetActive(false);
         Time.timeScale = 1f;
-        GetComponent<GameCore>().m_timerClick = 0;
+        //GetComponent<GameCore>().m_timerClick = 0;
     }
 
     public void OnClickLeave()

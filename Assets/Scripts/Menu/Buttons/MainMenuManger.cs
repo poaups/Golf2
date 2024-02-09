@@ -44,16 +44,12 @@ public class MainMenuManger : MonoBehaviour
     public void OnClickOptions()
     {
         ClickMenu.Play();
-        imageFade.gameObject.SetActive(true);
-        imageFade.DOFade(1, 2.9f).OnComplete(FadeCompleteOptions);
-        
+        menuOptions.SetActive(true);
+
+
 
     }
-    public void FadeCompleteOptions()
-    {
-        menuOptions.SetActive(true);
-        imageFade.gameObject.SetActive(false);
-    }
+    
 
     public void OnClickExit()
     {
