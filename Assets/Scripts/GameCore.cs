@@ -102,7 +102,7 @@ public class GameCore : MonoBehaviour
             //lanceurVideoScript.Allumer();
 
             s_currentLevel++;
-            //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
         }
     }
