@@ -22,10 +22,21 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            if(!MenuPause.activeSelf)
+            {
+                Time.timeScale = 0f;
+                MenuPause.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                MenuPause.SetActive(false);
+
+                
+            }
             //GetComponent<GameCore>().m_timerClick = 0;
-            Time.timeScale = 0f;
-            MenuPause.SetActive(true);
-           
+            //Time.timeScale = 0f;
+            //MenuPause.SetActive(true);
         }
     }
 
