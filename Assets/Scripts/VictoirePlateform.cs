@@ -5,6 +5,7 @@ using UnityEngine;
 public class VictoirePlateform : MonoBehaviour
 {
     public GameObject LanceurVideo;
+    public AudioSource SFX_Victoire;
 
     
     void Start()
@@ -21,6 +22,7 @@ public class VictoirePlateform : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Victoire")) 
         {
+            SFX_Victoire.Play();
             LanceurVideo.GetComponent<Lanceur_Glitch>().Activation();//Lancement glitch
             GameObject.Destroy(gameObject);//detruire la plateforme de victoire
         }

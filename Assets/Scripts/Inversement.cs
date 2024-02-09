@@ -8,6 +8,7 @@ public class Inversement : MonoBehaviour
 
     public bool isInverse = false;
     public KeyCode _touche;
+    public AudioSource InversmentSFX;
 
 
     void Start()
@@ -26,6 +27,7 @@ public class Inversement : MonoBehaviour
     {
         if (Input.GetKeyDown(_touche))
         {
+            InversmentSFX.Play();
             isInverse = !isInverse;
             InverserPosition();
         }

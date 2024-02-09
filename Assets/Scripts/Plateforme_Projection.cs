@@ -6,6 +6,7 @@ public class Plateforme_Projection : MonoBehaviour
 {
     public float Puisasance_Projection;
     private Rigidbody2D _rb;
+    public AudioSource SFX_Projection;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Plateforme_Projection : MonoBehaviour
     {
         if(col.gameObject.tag == "Projtection")
         {
+            SFX_Projection.Play();
             _rb.AddForce(new Vector2(Puisasance_Projection, Puisasance_Projection), ForceMode2D.Impulse);
         }
         

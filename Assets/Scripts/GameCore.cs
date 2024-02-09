@@ -8,6 +8,7 @@ public class GameCore : MonoBehaviour
 {
     public Rigidbody2D rb; //Rigibody du plaer
     public Camera cam; //Camera du player
+    public AudioSource GolfSound;
 
     [Header("Power Parameters")]
     public float ForceMax;
@@ -98,6 +99,10 @@ public class GameCore : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
         }
+        else if (s_currentLevel == 8)
+        {
+            SceneManager.LoadScene("SceneWin");
+        }
     }
 
     public void DisableGolfeur()
@@ -139,7 +144,7 @@ public class GameCore : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && _canShoot == true)
         {
-
+            GolfSound.Play();
             force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
 
             rb.simulated = true;

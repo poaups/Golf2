@@ -9,6 +9,7 @@ public class PlateformDeath : MonoBehaviour
     public GameObject Gamecore;
     public SpriteRenderer SpriteRenderer2;
     public GameObject GameDesing;
+    public AudioSource DeadSFX;
 
     private Transform __all;
     //private Transform ballTransform;
@@ -27,6 +28,7 @@ public class PlateformDeath : MonoBehaviour
     {
         if (collision.gameObject.tag == "Balle")
         {
+            DeadSFX.Play();
             SpriteRenderer2.color = new Color(1f, 1f, 1f, 0f); // Opacité a 0
             MainCamera.GetComponent<Shake>().start = true;
             Reset_Position();
