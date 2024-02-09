@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boutton
+  m_text: Retour
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 245cb0676c2aa2640b29d4b0dd1277ae, type: 2}
   m_sharedMaterial: {fileID: 7750518762257659504, guid: 245cb0676c2aa2640b29d4b0dd1277ae, type: 2}
@@ -2910,8 +2910,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294109131
+  m_fontColor: {r: 0.7960785, g: 0.9058824, b: 0.9490197, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3171,7 +3171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Option
+  m_text: 'Options
 
 '
   m_isRightToLeft: 0
