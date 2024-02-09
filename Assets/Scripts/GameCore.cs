@@ -44,6 +44,7 @@ public class GameCore : MonoBehaviour
 
         CurrentLevel = Levels[s_currentLevel];
         CurrentLevel.gameObject.SetActive(true);
+        
     }
 
     //Pas de saut en l'air grace a un raycast
@@ -110,9 +111,10 @@ public class GameCore : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
             return;
         }
-        else if (s_currentLevel == 8)
+        else if (s_currentLevel == 6)
         {
             SceneManager.LoadScene("SceneWin");
+            s_currentLevel = 0;
         }
     }
 
