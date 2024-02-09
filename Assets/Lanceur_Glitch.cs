@@ -6,7 +6,7 @@ public class Lanceur_Glitch : MonoBehaviour
 {
     public GameObject Glitch;
     public float Waiting;
-
+    public KeyCode Touche;
     private float _saveWaiting;
 
     void Start()
@@ -16,7 +16,7 @@ public class Lanceur_Glitch : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V))
+        if(Input.GetKeyDown(Touche))
         {
             Waiting = 0.10f;
             Activation();
