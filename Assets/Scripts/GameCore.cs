@@ -71,7 +71,6 @@ public class GameCore : MonoBehaviour
     private List<GameObject> instantiatedPrefabs = new List<GameObject>();
     void Update()
     {
-        // Vérifier si le clic gauche est relâché
         if (Input.GetMouseButtonUp(0))
         {
             // Supprimer les 20 derniers prefabs
@@ -222,14 +221,12 @@ public class GameCore : MonoBehaviour
 
     private void _OnDrawGizmos()
     {
-        // Vérifier si m_timerClick est supérieur à 0.30f
         if (m_timerClick > 0.10f)
         {
             Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(m_timerClick / rb.mass * 12, m_timerClick / rb.mass * 12), 200);
 
-            int pointsToShow = 20; // Nombre de points à afficher
+            int pointsToShow = 20; 
 
-            // Supprimer les prefabs si m_timerClick est inférieur à 0.30f
             if (m_timerClick <= 0.30f)
             {
                 foreach (var prefab in instantiatedPrefabs)
@@ -237,17 +234,14 @@ public class GameCore : MonoBehaviour
                     Destroy(prefab);
                 }
                 instantiatedPrefabs.Clear();
-                return; // Sortir de la méthode s'il n'y a pas de points à afficher
+                return; 
             }
 
-            // Supprimer les prefabs des 20 derniers points de la frame précédente
             for (int i = instantiatedPrefabs.Count - 1; i >= Mathf.Max(0, instantiatedPrefabs.Count - pointsToShow); i--)
             {
                 Destroy(instantiatedPrefabs[i]);
                 instantiatedPrefabs.RemoveAt(i);
             }
-
-            // Instancier les prefabs pour les 20 premiers points
             for (int i = 0; i < pointsToShow && i < points.Length; i++)
             {
                 GameObject instantiatedPrefab = Instantiate(Maprefabs, points[i], Quaternion.identity);
