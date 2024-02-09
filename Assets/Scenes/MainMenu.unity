@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: Jouer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ef0e25d231459f543b76c60981179127, type: 2}
   m_sharedMaterial: {fileID: -2445805182336014634, guid: ef0e25d231459f543b76c60981179127, type: 2}
@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Boutton
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 245cb0676c2aa2640b29d4b0dd1277ae, type: 2}
   m_sharedMaterial: {fileID: 7750518762257659504, guid: 245cb0676c2aa2640b29d4b0dd1277ae, type: 2}
@@ -5122,7 +5122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Quitter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ef0e25d231459f543b76c60981179127, type: 2}
   m_sharedMaterial: {fileID: -2445805182336014634, guid: ef0e25d231459f543b76c60981179127, type: 2}

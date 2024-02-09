@@ -11,7 +11,7 @@ public class Interrupteur : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Victoire"))
         {
-            //InterrupteurSFX.Play();
+            InterrupteurSFX.Play();
             Debug.Log("Toucher");
 
             Destroy(plateformeADetruire);
