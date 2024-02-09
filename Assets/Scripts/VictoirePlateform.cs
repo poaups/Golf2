@@ -24,7 +24,7 @@ public class VictoirePlateform : MonoBehaviour
         {
             SFX_Victoire.Play();
             LanceurVideo.GetComponent<Lanceur_Glitch>().Activation();//Lancement glitch
-            GameObject.Destroy(gameObject);//detruire la plateforme de victoire
+            //Destroy(collision.gameObject);
         }
     }
 }

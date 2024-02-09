@@ -36,7 +36,6 @@ public class GameCore : MonoBehaviour
     public GameObject Maprefabs; //Prefabs feedback tire
 
     //Liste ou il y'a aura tout les prefabs pour le feedback du tire
-    private List<GameObject> instantiatedPrefabs = new List<GameObject>();
     private bool _canShoot;
 
 
@@ -68,19 +67,32 @@ public class GameCore : MonoBehaviour
         }
     }
 
-    
 
+    private List<GameObject> instantiatedPrefabs = new List<GameObject>();
     void Update()
     {
-        
+        // Vérifier si le clic gauche est relâché
+        if (Input.GetMouseButtonUp(0))
+        {
+            // Supprimer les 20 derniers prefabs
+            int numToDestroy = Mathf.Min(20, instantiatedPrefabs.Count); // Nombre de prefabs à supprimer
+            for (int i = 0; i < numToDestroy; i++)
+            {
+                int lastIndex = instantiatedPrefabs.Count - 1;
+                Destroy(instantiatedPrefabs[lastIndex]);
+                instantiatedPrefabs.RemoveAt(lastIndex);
+            }
+        }
+
         //Feedback Reload du tire
         ImageRelaod.fillAmount = m_timerClick;
 
         Golfeur_Image();
         Puissance();
         Camera();
-        DestroyGuizmos();
+        //DestroyGuizmos();
         DisableGolfeur();
+        _OnDrawGizmos();
 
         int victoireAlive = 0;
         foreach (var item in CurrentLevel.platformVictoire)
@@ -208,14 +220,16 @@ public class GameCore : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void _OnDrawGizmos()
     {
+        // Vérifier si m_timerClick est supérieur à 0.30f
         if (m_timerClick > 0.10f)
         {
             Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(m_timerClick / rb.mass * 12, m_timerClick / rb.mass * 12), 200);
 
-            int pointsToShow = 20;
+            int pointsToShow = 20; // Nombre de points à afficher
 
+            // Supprimer les prefabs si m_timerClick est inférieur à 0.30f
             if (m_timerClick <= 0.30f)
             {
                 foreach (var prefab in instantiatedPrefabs)
@@ -223,21 +237,24 @@ public class GameCore : MonoBehaviour
                     Destroy(prefab);
                 }
                 instantiatedPrefabs.Clear();
-                return;
+                return; // Sortir de la méthode s'il n'y a pas de points à afficher
             }
 
+            // Supprimer les prefabs des 20 derniers points de la frame précédente
             for (int i = instantiatedPrefabs.Count - 1; i >= Mathf.Max(0, instantiatedPrefabs.Count - pointsToShow); i--)
             {
                 Destroy(instantiatedPrefabs[i]);
                 instantiatedPrefabs.RemoveAt(i);
             }
 
+            // Instancier les prefabs pour les 20 premiers points
             for (int i = 0; i < pointsToShow && i < points.Length; i++)
             {
                 GameObject instantiatedPrefab = Instantiate(Maprefabs, points[i], Quaternion.identity);
                 instantiatedPrefabs.Add(instantiatedPrefab);
             }
 
+            print(pointsToShow + " points affichés et objets instanciés");
         }
     }
 
