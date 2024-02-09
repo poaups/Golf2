@@ -16,6 +16,8 @@ public class MainMenuManger : MonoBehaviour
     [SerializeField] private GameObject menuOptions;
     [SerializeField] private GameObject menuCredits;
     private AudioSource Music;
+    public AudioClip ClickMenu;
+    
     
     [Header("Animation Credits")]
     public GameObject Background;
@@ -23,11 +25,14 @@ public class MainMenuManger : MonoBehaviour
     public GameObject Back_Button;
 
 
+
+
     public void OnClickPlay()
     {
         imageFade.gameObject.SetActive(true);
         imageFade.DOFade(1, 2.9f).OnComplete(FadeComplete);
-       
+        Music.PlayOneShot(ClickMenu);
+
     }
 
     private void FadeComplete()
@@ -37,6 +42,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickOptions()
     {
+        Music.PlayOneShot(ClickMenu);
         imageFade.gameObject.SetActive(true);
         imageFade.DOFade(1, 2.9f).OnComplete(FadeCompleteOptions);
         
@@ -50,7 +56,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickExit()
     {
-
+        Music.PlayOneShot(ClickMenu);
         menuOptions.SetActive(false);
         menuCredits.SetActive(false);
     }
@@ -58,6 +64,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickCredits()
     {
+        Music.PlayOneShot(ClickMenu);
         //Animator Credits
         Animator animator_Credits = Background.GetComponent<Animator>();
         if(animator_Credits != null)
@@ -98,6 +105,7 @@ public class MainMenuManger : MonoBehaviour
 
     public void OnClickQuit()
     {
+        Music.PlayOneShot(ClickMenu);
         Application.Quit();
     }
     
